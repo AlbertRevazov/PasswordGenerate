@@ -47,7 +47,7 @@ function copyHandler () {
     setCopied(true)
     setTimeout(() => {
       setCopied(false)
-    }, 4000);
+    }, 2000);
   }
 }
 
@@ -95,12 +95,7 @@ function copyHandler () {
     
 // Записываем конечную строку в наш соответсвующий state
     setResult(currentResult)
-// Очищаем наш ввод 
-    setUserInput('')
 
-    if(userInputStatus){
-      setUserInputStatus(!userInputStatus)
-    }
   }
 
   return (
@@ -112,19 +107,21 @@ function copyHandler () {
          readonly={false} 
          name='user' 
          value={userInput.name} 
-         placeholder='Введите ключевое слово для пароля'
+         className={styles['userInput']}
+         placeholder='Введите слово'
          onChange={userInputhandler} />) :
-          <Button type='button' onClick={handleUserInput}> Add </Button>
+         <Button type='button' className={styles['add']} onClick={handleUserInput}> Add </Button>
         }
 
-        
         <Input 
         type='text' 
         readonly={true} 
-        defaultValue={result} />
+        defaultValue={result}
+        className={styles['passInput']} />
+
+        {copied && <span className={styles['copied']}>Скопировано!</span>}        
 
         <button className={styles['copy']} onClick={copyHandler}></button>
-        {copied && <span className={styles['copied']}>Скопировано!</span>}
       </div>
       <div className={styles['option']}>
         <span className={styles['option-name']}>Длина пароля</span>
@@ -134,7 +131,7 @@ function copyHandler () {
         <label className={styles['option-label']} htmlFor='symbols'> Использовать символы</label>
         <Checkbox defaultChecked={false} onChange={boxHandler} id='symbols' />
       </div>
-      <Button type='button' onClick={handlePasswordGenerate}> GENERATE </Button>
+      <Button type='button' className={styles['generate']} onClick={handlePasswordGenerate}> GENERATE </Button>
     </div>
   )
 }

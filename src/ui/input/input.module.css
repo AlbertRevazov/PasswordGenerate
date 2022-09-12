@@ -14,8 +14,6 @@
 
 @media only screen and (max-device-width: 480px) {
   .input{
-    width: 70% ;
-    margin-right: 30px;
-
+    width: 99% ;
   }
 }
