@@ -5,6 +5,7 @@ import {Input} from '../../ui/input';
 import {Select} from '../../ui/select';
 import {Checkbox} from '../../ui/checkbox';
 import {Button} from '../../ui/button';
+import Animated from '../../animated/Animated';
 
 function PasswordGenerator() {
 // Переменные для создания пароля и для определения его длины
@@ -19,6 +20,7 @@ function PasswordGenerator() {
   const [passwordLength, setpasswordLength] = React.useState(passwordlengthValues[0])
   const [ box, setBox ] = React.useState(false)
   const [copied, setCopied] = React.useState(false)
+  const [animated, setAnimated] = React.useState(false)
 
 // Записываем текущую длину пароля
   const handleChangeLength = (event) => {
@@ -49,6 +51,14 @@ function copyHandler () {
       setCopied(false)
     }, 2000);
   }
+}
+
+const animationhandler = () => {
+  setAnimated(true)
+  setTimeout(() => {
+    setAnimated(false)
+    handlePasswordGenerate()
+  }, 2200);
 }
 
   const handlePasswordGenerate = () => {
@@ -110,7 +120,7 @@ function copyHandler () {
          className={styles['userInput']}
          placeholder='Введите слово'
          onChange={userInputhandler} />) :
-         <Button type='button' className={styles['add']} onClick={handleUserInput}> Add </Button>
+         <Button type='button' className={styles['add']} onClick={handleUserInput}> Добавить </Button>
         }
 
         <Input 
@@ -131,7 +141,8 @@ function copyHandler () {
         <label className={styles['option-label']} htmlFor='symbols'> Использовать символы</label>
         <Checkbox defaultChecked={false} onChange={boxHandler} id='symbols' />
       </div>
-      <Button type='button' className={styles['generate']} onClick={handlePasswordGenerate}> GENERATE </Button>
+     { animated && <Animated className={styles['animated']}/>}
+     {!animated && <Button type='button' className={styles['generate']} onClick={animationhandler}> Генерировать </Button> } 
     </div>
   )
 }
