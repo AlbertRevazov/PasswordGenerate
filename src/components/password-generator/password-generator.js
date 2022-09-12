@@ -45,10 +45,10 @@ function copyHandler () {
   if(result){
     navigator.clipboard.writeText(result)
     setCopied(true)
+    setTimeout(() => {
+      setCopied(false)
+    }, 4000);
   }
-  setTimeout(() => {
-    setCopied(false)
-  }, 4000);
 }
 
   const handlePasswordGenerate = () => {
@@ -124,14 +124,14 @@ function copyHandler () {
         defaultValue={result} />
 
         <button className={styles['copy']} onClick={copyHandler}></button>
-      </div>
-      <div className={styles['options']}>
-        <span className={styles['option-name']}>Длина пароля</span>
-        <Select options={passwordlengthValues} onBlur={handleChangeLength}></Select>
         {copied && <span className={styles['copied']}>Скопировано!</span>}
       </div>
       <div className={styles['option']}>
-        <label className={styles['option-label']} htmlFor='symbols'> Использовать спецсимволы</label>
+        <span className={styles['option-name']}>Длина пароля</span>
+        <Select options={passwordlengthValues} onBlur={handleChangeLength}></Select>
+      </div>
+      <div className={styles['option']}>
+        <label className={styles['option-label']} htmlFor='symbols'> Использовать символы</label>
         <Checkbox defaultChecked={false} onChange={boxHandler} id='symbols' />
       </div>
       <Button type='button' onClick={handlePasswordGenerate}> GENERATE </Button>
