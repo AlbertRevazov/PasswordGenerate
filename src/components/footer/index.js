@@ -1,0 +1,1 @@
+export {Fotter} from './Footer'

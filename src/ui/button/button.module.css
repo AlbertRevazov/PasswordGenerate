@@ -1,10 +1,11 @@
 .button {
+  font-family:system-ui;
   min-height: 42px;
   line-height: 42px;
   padding: 0 20px;
-  background-color: darkgreen;
+  background-color:  white;
   cursor: pointer;
-  color: white;
+  color:  rgb(6, 117, 197);
   font-weight: 300;
   font-size: 20px;
   text-transform: uppercase;
@@ -12,8 +13,9 @@
   border-radius:  4px;
   outline: none;
   margin-bottom: 50px;
+  box-shadow: 0 0 8px 4px rgb(245, 249, 245);
 }
 .button:active{
-  background-color: darkred;
+  background-color: rgba(250, 249, 249, 0.24);
 }
 

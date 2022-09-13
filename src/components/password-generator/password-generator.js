@@ -5,7 +5,7 @@ import {Input} from '../../ui/input';
 import {Select} from '../../ui/select';
 import {Checkbox} from '../../ui/checkbox';
 import {Button} from '../../ui/button';
-import Animated from '../../animated/Animated';
+import {Animated} from '../../components/animated';
 
 function PasswordGenerator() {
 // Переменные для создания пароля и для определения его длины
@@ -58,7 +58,7 @@ const animationhandler = () => {
   setTimeout(() => {
     setAnimated(false)
     handlePasswordGenerate()
-  }, 2200);
+  }, 1800);
 }
 
   const handlePasswordGenerate = () => {
@@ -141,7 +141,7 @@ const animationhandler = () => {
         <label className={styles['option-label']} htmlFor='symbols'> Использовать символы</label>
         <Checkbox defaultChecked={false} onChange={boxHandler} id='symbols' />
       </div>
-     { animated && <Animated className={styles['animated']}/>}
+      {animated && <Animated className={styles['animated']}/>}
      {!animated && <Button type='button' className={styles['generate']} onClick={animationhandler}> Генерировать </Button> } 
     </div>
   )

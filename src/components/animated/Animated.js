@@ -19,4 +19,4 @@ function Animated({className}) {
   )
 }
 
-export default Animated;
+export {Animated};

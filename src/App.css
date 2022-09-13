@@ -1,6 +1,10 @@
 * {
   margin: 0;
-  font-family: monospace;
+}
+body{
+  background-image: url('../public/background.jpg');
+  background-size: cover;
+  background-attachment: fixed;
 }
 .App {
   display: flex;

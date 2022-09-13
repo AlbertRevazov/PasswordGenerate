@@ -1,11 +1,11 @@
 .animated{
   width: 150px;
   height: 150px;
-  margin-top: -70px;
+  margin-top: -41px;
 }
 @media only screen and (max-device-width: 480px) {
   .animated{
     margin-left: 22vw;
-    margin-top: -7vw;
+    margin-top: -1vw;
   }
 }
